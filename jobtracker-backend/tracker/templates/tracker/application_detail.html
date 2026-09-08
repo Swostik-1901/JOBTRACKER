@@ -1,0 +1,28 @@
+{% extends "tracker/base.html" %}
+{% block title %}{{ application.role_title }}{% endblock %}
+{% block content %}
+
+<h1>{{ application.role_title }} @ {{ application.company_name }}</h1>
+<p><strong>Status:</strong> {{ application.get_status_display }}</p>
+<p><strong>Applied on:</strong> {{ application.date_applied }}</p>
+{% if application.next_action_date %}<p><strong>Next action:</strong> {{ application.next_action_date }}</p>{% endif %}
+{% if application.job_link %}<p><a href="{{ application.job_link }}" target="_blank">View original posting</a></p>{% endif %}
+{% if application.resume_file %}<p><a href="{{ application.resume_file.url }}" target="_blank">Download resume used</a></p>{% endif %}
+
+<h3>Notes</h3>
+<p>{{ application.notes|linebreaks|default:"No notes yet." }}</p>
+
+<h3>Status Timeline</h3>
+<ul class="timeline">
+    {% for h in application.history.all %}
+        <li>{{ h.changed_at|date:"M d, Y H:i" }} — {{ h.get_status_display }} {% if h.note %}({{ h.note }}){% endif %}</li>
+    {% endfor %}
+</ul>
+
+<div class="actions">
+    <a href="{% url 'application-update' application.pk %}" class="button">Edit</a>
+    <a href="{% url 'application-delete' application.pk %}" class="button button-danger">Delete</a>
+    <a href="{% url 'dashboard' %}">Back to dashboard</a>
+</div>
+
+{% endblock %}

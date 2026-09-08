@@ -1,0 +1,64 @@
+{% extends "tracker/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h1>Your Applications ({{ total_count }})</h1>
+
+<div class="summary-cards">
+    {% for item in status_counts %}
+        <div class="card">
+            <div class="card-count">{{ item.count }}</div>
+            <div class="card-label">{{ item.status }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<form method="get" class="filter-bar">
+    <input type="text" name="q" placeholder="Search company or role..." value="{{ current_query }}">
+    <select name="status">
+        <option value="">All statuses</option>
+        {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if value == current_status %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<table class="app-table">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Applied On</th>
+            <th>Next Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for app in applications %}
+        <tr>
+            <td><a href="{{ app.get_absolute_url }}">{{ app.company_name }}</a></td>
+            <td>{{ app.role_title }}</td>
+            <td><span class="status-badge status-{{ app.status|lower }}">{{ app.get_status_display }}</span></td>
+            <td>{{ app.date_applied }}</td>
+            <td>{{ app.next_action_date|default:"—" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">No applications yet. Add your first one!</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

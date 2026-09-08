@@ -1,0 +1,14 @@
+{% extends "tracker/base.html" %}
+{% block title %}Delete Application{% endblock %}
+{% block content %}
+
+<h1>Delete this application?</h1>
+<p>{{ object.role_title }} @ {{ object.company_name }} — this can't be undone.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button-danger">Yes, delete it</button>
+    <a href="{{ object.get_absolute_url }}">Cancel</a>
+</form>
+
+{% endblock %}
