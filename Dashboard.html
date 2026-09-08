@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your board — Boarding</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="dot"></span>BOARDING</a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="active">Board</a>
+      <a href="index.html">Home</a>
+    </div>
+    <div class="nav-cta">
+      <span class="user-pill">A. Sharma</span>
+      <a href="index.html" class="btn btn-ghost">Log out</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<main class="wrap dash">
+
+  <div class="dash-head">
+    <div>
+      <p class="eyebrow">Your board</p>
+      <h1>Applications in flight</h1>
+    </div>
+    <button class="btn btn-primary" id="openModal">+ Log application</button>
+  </div>
+
+  <div class="summary-row" id="summaryRow"></div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search company or role..." class="input">
+    <div class="chip-row" id="chipRow"></div>
+  </div>
+
+  <div class="board-panel">
+    <div class="board-table-header">
+      <span>Role</span><span>Company</span><span>Status</span><span>Applied</span><span>Next action</span>
+    </div>
+    <div class="board-table-body" id="tableBody"></div>
+    <p class="empty-state" id="emptyState" hidden>No applications match that search. Try a different filter.</p>
+  </div>
+
+</main>
+
+<!-- Add / edit application modal -->
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h2 id="modalTitle">Log an application</h2>
+      <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+    </div>
+    <form id="appForm" class="modal-form">
+      <div class="form-row">
+        <label>Company
+          <input type="text" name="company" required placeholder="e.g. Northwind Labs">
+        </label>
+        <label>Role
+          <input type="text" name="role" required placeholder="e.g. SWE Intern">
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Job link
+          <input type="url" name="link" placeholder="https://...">
+        </label>
+        <label>Status
+          <select name="status">
+            <option value="applied">Applied</option>
+            <option value="oa">Online Assessment</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Date applied
+          <input type="date" name="dateApplied">
+        </label>
+        <label>Next action date
+          <input type="date" name="nextAction">
+        </label>
+      </div>
+      <label class="full">Resume version
+        <input type="file" name="resume">
+      </label>
+      <label class="full">Notes
+        <textarea name="notes" rows="3" placeholder="Referral from...; recruiter call went well..."></textarea>
+      </label>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save application</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

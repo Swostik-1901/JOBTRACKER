@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boarding — track every application</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="dot"></span>BOARDING</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#board">The board</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="dashboard.html" class="btn btn-ghost">Log in</a>
+      <a href="dashboard.html" class="btn btn-primary">Get started</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Job application tracker</p>
+      <h1>Every application.<br>One board.</h1>
+      <p class="hero-sub">Stop losing track across fifteen browser tabs and a half-updated spreadsheet. Log each application once, and watch it move from applied to offer — like gates on a departures board.</p>
+      <div class="hero-actions">
+        <a href="dashboard.html" class="btn btn-primary">Open your board</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+      <p class="hero-note">Free. No credit card. Built for students and new grads.</p>
+    </div>
+
+    <div class="board" id="board" aria-hidden="true">
+      <div class="board-header">
+        <span>ROLE</span><span>COMPANY</span><span>STATUS</span><span>NEXT</span>
+      </div>
+      <div class="board-rows" id="boardRows"></div>
+    </div>
+  </div>
+</header>
+
+<section class="strip">
+  <div class="wrap strip-inner">
+    <div class="strip-item"><strong>1</strong> place for every application</div>
+    <div class="strip-item"><strong>0</strong> more forgotten follow-ups</div>
+    <div class="strip-item"><strong>&lt;2 min</strong> to log a new one</div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three steps, every time you apply</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-status status-applied">APPLIED</span>
+        <h3>Log it</h3>
+        <p>Company, role, link, and the exact resume file you sent — so you never wonder which version a recruiter has.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-status status-interview">INTERVIEW</span>
+        <h3>Move it</h3>
+        <p>Update the status as it progresses. Every change is time-stamped, so you get a full timeline for free.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-status status-offer">OFFER</span>
+        <h3>Track it</h3>
+        <p>See counts by stage at a glance, filter by company or status, and never miss a follow-up date again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board-preview" id="board">
+  <div class="wrap">
+    <p class="eyebrow">The board</p>
+    <h2>See your whole search at a glance</h2>
+    <p class="section-sub">A single view of every application, color-coded by stage, sortable and searchable.</p>
+    <div class="preview-shell">
+      <img src="https://placehold.co/1040x520/121B2E/8592A6?text=Dashboard+preview" alt="Dashboard preview" class="preview-img">
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <p class="eyebrow">FAQ</p>
+      <h2>Good to know</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Is my data private?</summary>
+        <p>Each account only ever sees its own applications. Nothing is shared or public.</p>
+      </details>
+      <details>
+        <summary>Can I upload different resume versions?</summary>
+        <p>Yes — attach the exact file you sent to each application, so you can always match what a recruiter received.</p>
+      </details>
+      <details>
+        <summary>Does it work on mobile?</summary>
+        <p>Yes, the board and forms are fully responsive.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="index.html" class="nav-brand"><span class="dot"></span>BOARDING</a>
+    <p>Built as a personal project. Not affiliated with any airline, obviously.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>   
