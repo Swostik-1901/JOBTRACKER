@@ -18,9 +18,9 @@
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <a href="dashboard.html" class="btn btn-ghost">Log in</a>
-      <a href="dashboard.html" class="btn btn-primary">Get started</a>
-    </div>
+      <button class="btn btn-ghost" id="openLogin">Log in</button>
+      <button class="btn btn-primary" id="openSignup">Get started</button>
+  </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
   </div>
 </nav>
@@ -119,7 +119,28 @@
     <p>Built as a personal project. Not affiliated with any airline, obviously.</p>
   </div>
 </footer>
-
+<div class="modal-overlay" id="authOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-head">
+      <h2 id="authTitle">Log in</h2>
+      <button class="modal-close" id="closeAuth" aria-label="Close">&times;</button>
+    </div>
+    <form id="authForm" class="modal-form">
+      <label class="full">Username
+        <input type="text" name="username" required placeholder="e.g. asharma">
+      </label>
+      <label class="full">Password
+        <input type="password" name="password" required placeholder="••••••••">
+      </label>
+      <p id="authError" class="auth-error" hidden></p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="switchAuthMode">Need an account? Sign up</button>
+        <button type="submit" class="btn btn-primary" id="authSubmit">Log in</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="js/auth.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>   
